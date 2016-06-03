@@ -6,10 +6,10 @@ package models;
 
 public class User {
 
-    public String login;
-    public String password;
-    public String email;
-    public long ph_number;
+    private String login;
+    private String password;
+    private String email;
+    private long ph_number;
 
 
     public String getLogin() {
@@ -34,5 +34,9 @@ public class User {
         this.login = login;
         this.password = password;
         this.email = email;
+    }
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
     }
 }

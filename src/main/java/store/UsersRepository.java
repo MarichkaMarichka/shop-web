@@ -27,22 +27,20 @@ public class UsersRepository {
     }
 
     //-------------------------------------------------------------
-    public void addUser(User u) throws Exception {
-        try {
-            final PreparedStatement uStatement = this.connection.prepareStatement("insert into users (login,password,email,ph_numb) " +
-                    "values ('" + u.login + "','"+u.password+"','"+u.email+"','"+u.ph_number+"')");
+    public void addUser(User u) throws SQLException {
+
+            final PreparedStatement uStatement = this.connection.prepareStatement("insert into s_users (login,password,email,ph_number) " +
+                    "values ('" + u.getLogin() + "','"+u.getPassword()+"','"+u.getEmail()+"','"+u.getPh_number()+"')");
             uStatement.executeUpdate();
             uStatement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
     //-------------------------------------------------------------
-    public boolean searchUserByLogPass(User u) {
+    public boolean searchUserByLogPass(User u){
         boolean exist = false;
         try{
             final Statement statement = this.connection.createStatement();
-            final ResultSet rs = statement.executeQuery("select * from users where login = '"+u.login+"' and password = '"+u.password+"'");
+            final ResultSet rs = statement.executeQuery("select * from s_users where login = '"+u.getLogin()+"' and password = '"+u.getPassword()+"'");
             if (rs.next()){
                 exist = true;
             }
@@ -51,9 +49,13 @@ public class UsersRepository {
         }
         return exist;
     }
-    public static void main(String []args) {
+
+
+    public static void main(String []args)  {
         User user = new User("1","2","3",4);
+
         UsersRepository storage = new UsersRepository();
+
 
 
 
