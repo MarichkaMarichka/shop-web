@@ -60,7 +60,7 @@
                    <%
                         List<Item> list = (ArrayList<Item>)session.getAttribute("cartList");
                                     if((list.size()>0)&&(list.get(list.size()-1).getId_item()==Integer.parseInt(session.getAttribute("idItem").toString()))){%>
-                                        <p><a href="DeleteFromCartServlet?index=<%=list.size()-1%>">Delete from cart</a></p>
+                                        <p><a href="DeleteFromCartAllItemsServlet?index=<%=list.size()-1%>">Delete from cart</a></p>
                                     <%}else{ %>
                                         <p><a href='AddInCartServlet?idItem=<%=session.getAttribute("idItem")%>'>Add to cart</a></p><%
                                     }

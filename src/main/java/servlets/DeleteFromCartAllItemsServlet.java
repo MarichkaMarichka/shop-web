@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/DeleteFromCartServlet")
-public class DeleteFromCartServlet extends HttpServlet {
+@WebServlet("/DeleteFromCartAllItemsServlet")
+public class DeleteFromCartAllItemsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(true);
@@ -22,7 +22,7 @@ public class DeleteFromCartServlet extends HttpServlet {
         List<Item> list = (ArrayList<Item>)session.getAttribute("cartList");
         list.remove(index);
         session.setAttribute("cartList",list);
-        resp.sendRedirect(getServletContext().getContextPath() + "/cart.jsp");
+        resp.sendRedirect(getServletContext().getContextPath() + "/descript.jsp");
 
 
 

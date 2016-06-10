@@ -80,7 +80,7 @@
                     </a>
                   </td>
                   <td>
-                    <a href="#">
+                    <a href="DeleteFromCartServlet?index=<%=countIndex%>">
                       <span class="glyphicon glyphicon-remove"></span>
                     </a>
                   </td>

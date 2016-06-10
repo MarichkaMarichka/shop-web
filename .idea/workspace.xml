@@ -2,65 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4c0d294-1178-4c60-b64e-2448cafe9b2b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlets/AddInCartServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlets/DescriptServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlets/SelectServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/descript.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/home.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/login.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/registr.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/store/UserException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/css/maven-base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/css/maven-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/css/print.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/css/site.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/dependencies.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/dependency-convergence.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/dependency-info.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/close.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/collapsed.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/expanded.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/external.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/icon_error_sml.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/icon_info_sml.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/icon_success_sml.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/icon_warning_sml.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/logos/build-by-maven-black.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/logos/build-by-maven-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/logos/maven-feather.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/images/newwindow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/plugin-management.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/plugins.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/project-info.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/site/project-summary.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/home.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/login.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/registr.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/store/UserException.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/styles.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/models/Item.class" afterPath="$PROJECT_DIR$/target/classes/models/Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/LoginServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/LoginServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/store/ItemsRepository.class" afterPath="$PROJECT_DIR$/target/classes/store/ItemsRepository.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartAllItemsServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/servlets/DeleteFromCartServlet.class" afterPath="$PROJECT_DIR$/target/classes/servlets/DeleteFromCartServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0.war" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/models/Item.class" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/models/Item.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/servlets/LoginServlet.class" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/servlets/LoginServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/store/ItemsRepository.class" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/store/ItemsRepository.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/servlets/DeleteFromCartServlet.class" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/WEB-INF/classes/servlets/DeleteFromCartServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/models/Item.java" afterPath="$PROJECT_DIR$/src/main/java/models/Item.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/LoginServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/store/ItemsRepository.java" afterPath="$PROJECT_DIR$/src/main/java/store/ItemsRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/styles.css" afterPath="$PROJECT_DIR$/src/main/webapp/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java" afterPath="$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/cart.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/descript.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/descript.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/home.jsp" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/login.jsp" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/styles.css" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/cart.jsp" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/cart.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/descript.jsp" afterPath="$PROJECT_DIR$/target/sombra-shop-web-1.0.0/descript.jsp" />
     </list>
     <ignored path="sombra_shop_web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,7 +39,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/descript.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="92" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="92" />
+              <caret line="62" column="81" selection-start-line="62" selection-start-column="81" selection-end-line="62" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeleteFromCartServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="71" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -116,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DeleteFromCartServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java">
+      <file leaf-file-name="DeleteFromCartAllItemsServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartAllItemsServlet.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,8 +115,8 @@
       <file leaf-file-name="cart.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/cart.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54565704">
-              <caret line="63" column="21" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.62138087">
+              <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -226,11 +188,12 @@
         <option value="$PROJECT_DIR$/src/main/java/store/ItemsRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/DescriptServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/home.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/descript.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/CartServlet.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/SelectServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/cart.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartAllItemsServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/descript.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java" />
       </list>
     </option>
   </component>
@@ -1162,24 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/descript.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="92" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/DescriptServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1217,10 +1162,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartAllItemsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/descript.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="81" selection-start-line="62" selection-start-column="81" selection-end-line="62" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/servlets/DeleteFromCartServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="71" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/cart.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54565704">
-          <caret line="63" column="21" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.62138087">
+          <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
           <folding />
         </state>
       </provider>
