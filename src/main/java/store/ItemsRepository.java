@@ -4,6 +4,7 @@ package store;
 import models.Item;
 import service.Settings;
 
+import javax.xml.soap.Text;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +27,13 @@ public class ItemsRepository {
             throw new IllegalStateException(e);
         }
     }
-    public List<Item> selectItems(int start,int count){
+    public List<Item> selectItems(int start,int take){
         try{
             final Statement statement = this.connection.createStatement();
-            final ResultSet rs = statement.executeQuery("select * from items limit "+count+" offset "+start+"");
+            final ResultSet rs = statement.executeQuery("select * from items limit "+take+" offset "+start);
             while (rs.next()){
                 Item item = new Item();
+                item.setId_item(rs.getInt(1));
                 item.setName(rs.getString(2));
                 item.setPrice(rs.getInt(3));
                 item.setImage(rs.getString(4));
@@ -42,5 +44,43 @@ public class ItemsRepository {
             e.printStackTrace();
         }
         return items;
+    }
+    public int countRecords(){
+        int size = 0;
+        try{
+            final Statement statement = this.connection.createStatement();
+            final ResultSet rs = statement.executeQuery("select * from items ");
+            int i = 0;
+            while (rs.next()){
+              i++;
+            }
+            size = i;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return size;
+    }
+    public Item searchItemById(int id){
+        Item item = new Item();
+        try{
+            final Statement statement = this.connection.createStatement();
+            final ResultSet rs = statement.executeQuery("select * from items where id_item = "+id);
+            if (rs.next()){
+                item.setId_item(rs.getInt(1));
+                item.setName(rs.getString(2));
+                item.setPrice(rs.getInt(3));
+                item.setImage(rs.getString(4));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return item;
+    }
+    public static void main(String []args)  {
+        Object obj = 10;
+        int a = (Integer) obj;
+        if(10==a){
+            System.out.println("true");
+        }
     }
 }

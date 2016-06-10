@@ -4,6 +4,8 @@
 <%@ page import="models.Item" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,6 +13,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+
 </head>
 <body>
 
@@ -45,34 +48,31 @@
         </div>
 
         <!-- End Header -->
-         <div class="row" id="content-column">
 
-         <%
-            ItemsRepository storage = new ItemsRepository();
-            List<Item> items = storage.selectItems(1,6);
-            String name;
-            Integer price;
-            String image;
-            for (Item i :items) {
-            %>
+
+
+
 
                 <!-- Start Main Page Content -->
+                <div class="row" id="content-column">
+                <c:forEach var="item" items="${itemList}">
 
                                   <div class="col-md-3">
                                     <div class="thumbnail">
-                                      <img data-src="holder.js/100%x180" />
+                                      <img data-src="holder.js/80%x160" />
                                       <div class="caption">
 
-                                        <a href="https://www.google.com.ua">
-                                        <img src="<%= i.getImage()%>" alt="Lava GSM Mobile Phone" style="width:263px;height:180px;">
+
+                                        <p><a href="DescriptServlet?idItem=${item.getId_item()}"><img src="${item.getImage()}" style="width:233px;height:150px;"></a></p>
                                         <p>
-                                            <%= i.getName()%>
+                                            ${item.getName()}
                                         <br>
-                                            <%= i.getPrice()%>$
+                                            ${item.getPrice()} $
                                         </p>
                                       </div>
                                     </div>
                                   </div>
+                 </c:forEach>
 
 
 
@@ -80,8 +80,58 @@
 
 
 
-           <% } %>
-           </div>
+        <div class="col-md-12 text-center">
+
+         <nav class="navigation">
+           <ul class="pagination">
+
+
+
+           	<c:if test="${currentPage != 1}">
+           	<li class="page-item ">
+           	    <a class="page-link" href="SelectServlet?page=${currentPage - 1}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+
+           	</c:if>
+
+           	<%--For displaying Page numbers.
+           	The when condition does not display a link for the current page--%>
+
+           			<c:forEach begin="1" end="${noOfPages}" var="i">
+           				<c:choose>
+           					<c:when test="${currentPage eq i}">
+           						<li class="page-item active">
+                                   <a class="page-link" href="#" >${i} <span class="sr-only">(current)</span></a>
+                                </li>
+           					</c:when>
+           					<c:otherwise>
+           					    <li class="page-item"><a class="page-link" href="SelectServlet?page=${i}">${i}</a></li>
+           					</c:otherwise>
+           				</c:choose>
+           			</c:forEach>
+
+
+           	<%--For displaying Next link --%>
+           	<c:if test="${currentPage lt noOfPages}">
+           		<li class="page-item ">
+                   <a class="page-link" href="SelectServlet?page=${currentPage + 1}" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                   </a>
+                </li>
+           	</c:if>
+
+
+
+            </li>
+           </ul>
+         </nav>
+
+         </div>
+        </div>
            <!-- End Main Page Content -->
 
 

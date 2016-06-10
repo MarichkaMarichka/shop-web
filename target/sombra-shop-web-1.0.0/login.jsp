@@ -27,6 +27,7 @@
                 </div>
                 <!-- Collection of nav links, forms, and other content for toggling -->
                 <div id="navbarCollapse" class="collapse navbar-collapse">
+
                     <form role="search" class="navbar-form navbar-left">
                         <div class="form-group">
                             <input type="text" placeholder="Search" class="form-control">

@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="store.ItemsRepository" %>
+<%@ page import="models.Item" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+
 </head>
 <body>
 
@@ -23,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#" class="navbar-brand">SombraShop</a>
+                    <a href="/sombra-shop-web-1.0.0/SelectServlet" class="navbar-brand">SombraShop</a>
                 </div>
                 <!-- Collection of nav links, forms, and other content for toggling -->
                 <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -40,33 +48,30 @@
         </div>
 
         <!-- End Header -->
-
-
-
-
-
         <!-- Start Main Page Content -->
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="thumbnail">
-                      <img data-src="holder.js/100%x180" />
-                      <div class="caption">
-                        <a href="http://www.w3schools.com">
-                        <img src="http://stat.homeshop18.com/homeshop18/images/productImages/274/lava-iris-x5-dual-sim-android-mobile-phone-large_4e574328198102ed9804b0fd99c2d60b.jpg" alt="Lava GSM Mobile Phone" style="width:263px;height:180px;">
-                        <p>
-                          <a href="#" class="btn btn-success" role="button">Like</a>
-                          <a href="#" class="btn btn-danger" role="button">Dislike</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
+        <div class="row" id="content-column">
+            <center>
+                   <p><img src='<%=session.getAttribute("imageItem")%>' style="width:450px;height:300px;"></p>
+                   <p>
+                     <%=session.getAttribute("nameItem")%>
+                   <br>
+                     <%=session.getAttribute("priceItem")%> $
+                   </p>
+                   <%
+                        List<Item> list = (ArrayList<Item>)session.getAttribute("cartList");
+                                    if((list.size()>0)&&(list.get(list.size()-1).getId_item()==Integer.parseInt(session.getAttribute("idItem").toString()))){%>
+                                        <p><a href="DeleteFromCartServlet?index=<%=list.size()-1%>">Delete from cart</a></p>
+                                    <%}else{ %>
+                                        <p><a href='AddInCartServlet?idItem=<%=session.getAttribute("idItem")%>'>Add to cart</a></p><%
+                                    }
+                   %>
+            </center>
+        </div>
         <!-- End Main Page Content -->
+
+
+
+
 
 
 

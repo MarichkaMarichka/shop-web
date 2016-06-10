@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="store.ItemsRepository" %>
+<%@ page import="models.Item" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+
 </head>
 <body>
 
@@ -33,10 +41,7 @@
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login.jsp">Log In</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                          <li><a href="registr.jsp">Sing Up</a></li>
+                        <li><a href="LogoutServlet" >Log Out</a></li>
                     </ul>
                 </div>
             </nav>
@@ -44,48 +49,57 @@
 
         <!-- End Header -->
         <!-- Start Main Page Content -->
+            <div class="row" id="content-column">
+            <table class="table table-bordered">
+              <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+              <tbody>
+              <% List<Item> list = (ArrayList<Item>)session.getAttribute("cartList");
+                 ItemsRepository storage = new ItemsRepository();
+                 int countEl = 1;
+                 int countIndex = 0;
+                 for(Item i:list){
+                 Item item = storage.searchItemById(list.get(countIndex).getId_item());
+                 %>
+                <tr>
+                  <th scope="row"><%=countEl %></th>
+                  <td><img src="<%=item.getImage()%>" style="width:133px;height:50px;"></td>
+                  <td><%=item.getName()%></td>
+                  <td><%=item.getPrice()%>$</td>
+                  <td>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                      <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                  </td>
+                </tr>
+              <%countEl++;
+                countIndex++;}%>
+              </tbody>
+            </table>
 
-                <div class="row" id="content-column">
-                    <div class="col-xs-4"></div>
-                    <div class="col-xs-4">
-                            <div class="form-group">
-                                <center><h2>Login Form</h2></center>
-                            </div>
-                            <form action="LoginServlet" method="POST" class="form-horizontal">
-                             <div class="form-group">
-                              <label >Login</label>
-                              <input name="login" class="form-control" placeholder="Login">
-
-                             </div>
+            </div>
+        <!-- End Main Page Content -->
 
 
 
-                             <div class="form-group">
-                              <label for="pass" >Password</label>
-                              <input name="pass" type="password" class="form-control" id="pass" placeholder="Password">
 
 
-                               <div style="color:red">
-                               <%if(session.getAttribute("myData")!=null){%>
-                               <%= session.getAttribute("myData") %>
-                               <%
-                                session.setAttribute("myData", null) ;
-                               }%>
-                               </div>
-                             </div>
 
-                             <div class="form-group">
-                              <div class="text-center">
-                               <button type="submit" class="btn btn-success">Log In</button>
-                              </div>
-                             </div>
-                            </form>
 
-                    </div>
-                    <div class="col-xs-4"></div>
 
-                    </div>
-                <!-- End Main Page Content -->
         <!-- Start Footer -->
 
         <div class="panel panel-default">
