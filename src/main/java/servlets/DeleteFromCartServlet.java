@@ -16,13 +16,17 @@ import java.util.List;
 public class DeleteFromCartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-        Item item = new Item();
-        int index = Integer.parseInt(req.getParameter("index"));
-        List<Item> list = (ArrayList<Item>)session.getAttribute("cartList");
-        list.remove(index);
-        session.setAttribute("cartList",list);
-        resp.sendRedirect(getServletContext().getContextPath() + "/cart.jsp");
+        try {
+            HttpSession session = req.getSession(true);
+            Item item = new Item();
+            int index = Integer.parseInt(req.getParameter("index"));
+            List<Item> list = (ArrayList<Item>) session.getAttribute("cartList");
+            list.remove(index);
+            session.setAttribute("cartList", list);
+            resp.sendRedirect(getServletContext().getContextPath() + "/cart.jsp");
+        }catch (NullPointerException ex) {
+            resp.sendRedirect(getServletContext().getContextPath() + "/login.jsp");
+        }
 
 
 

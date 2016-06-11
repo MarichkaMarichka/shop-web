@@ -23,7 +23,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#" class="navbar-brand">SombraShop</a>
+                    <a href="SelectServlet" class="navbar-brand">SombraShop</a>
                 </div>
                 <!-- Collection of nav links, forms, and other content for toggling -->
                 <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -33,11 +33,12 @@
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login.jsp">Log In</a></li>
+                        <li><a href="registr.jsp">Sing Up</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                          <li><a href="registr.jsp">Sing Up</a></li>
+                        <li><a href="login.jsp">Log In</a></li>
                     </ul>
+
                 </div>
             </nav>
         </div>

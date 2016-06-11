@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/RegServlet")
 public class RegServlet extends HttpServlet {
@@ -29,8 +31,14 @@ public class RegServlet extends HttpServlet {
         try{
             if(this.checkIsEqualsPass(psw,submPsw,req)) {
                 storage.addUser(user);
+                int id = storage.searchUserByLogPass(user);
+                List cartList = new ArrayList();
+                HttpSession session = req.getSession(true);
+                session.setAttribute("id_user",id);
+                session.setAttribute("cartList", cartList);
+                resp.sendRedirect(getServletContext().getContextPath() + "/SelectServlet");
             }
-            resp.sendRedirect(getServletContext().getContextPath() + "/registr.jsp");
+
         }catch(SQLException ex){
             HttpSession session = req.getSession(true);
             String value2 = "This user is already registered!";

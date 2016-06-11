@@ -17,19 +17,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/AddInCartServlet")
-public class AddInCartServlet extends HttpServlet {
+@WebServlet("/AddInCartListServlet")
+public class AddInCartListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-        Item item = new Item();
+        try {
+            HttpSession session = req.getSession(true);
+            Item item = new Item();
 
-        item.setId_item(Integer.parseInt(req.getParameter("idItem")));
-        List<Item> list = (ArrayList<Item>)session.getAttribute("cartList");
-        list.add(item);
-        session.setAttribute("cartList",list);
-        resp.sendRedirect(getServletContext().getContextPath() + "/descript.jsp");
-
+            item.setId_item(Integer.parseInt(req.getParameter("idItem")));
+            List<Item> list = (ArrayList<Item>) session.getAttribute("cartList");
+            list.add(item);
+            session.setAttribute("cartList", list);
+            resp.sendRedirect(getServletContext().getContextPath() + "/descript.jsp");
+        } catch (NullPointerException ex) {
+            resp.sendRedirect(getServletContext().getContextPath() + "/login.jsp");
+        }
 
 
     }

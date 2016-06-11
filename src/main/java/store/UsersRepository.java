@@ -36,25 +36,23 @@ public class UsersRepository {
 
     }
     //-------------------------------------------------------------
-    public boolean searchUserByLogPass(User u){
-        boolean exist = false;
+    public int searchUserByLogPass(User u){
+        int id = 0;
         try{
             final Statement statement = this.connection.createStatement();
             final ResultSet rs = statement.executeQuery("select * from s_users where login = '"+u.getLogin()+"' and password = '"+u.getPassword()+"'");
             if (rs.next()){
-                exist = true;
+                id = rs.getInt(1);
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
-        return exist;
+        return id;
     }
 
 
     public static void main(String []args)  {
-        User user = new User("1","2","3",4);
 
-        UsersRepository storage = new UsersRepository();
 
 
 

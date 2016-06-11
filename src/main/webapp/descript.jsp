@@ -21,33 +21,45 @@
     <div class="container">
 
         <!-- Start Header -->
-        <div class="bs-example">
-            <nav role="navigation" class="navbar navbar-default">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="/sombra-shop-web-1.0.0/SelectServlet" class="navbar-brand">SombraShop</a>
-                </div>
-                <!-- Collection of nav links, forms, and other content for toggling -->
-                <div id="navbarCollapse" class="collapse navbar-collapse">
-                    <form role="search" class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" placeholder="Search" class="form-control">
+                <div class="bs-example">
+                    <nav role="navigation" class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="SelectServlet" class="navbar-brand">SombraShop</a>
                         </div>
-                    </form>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="LogoutServlet" >Log Out</a></li>
-                    </ul>
+                        <!-- Collection of nav links, forms, and other content for toggling -->
+                        <div id="navbarCollapse" class="collapse navbar-collapse">
+                            <form role="search" class="navbar-form navbar-left">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Search" class="form-control">
+                                </div>
+                            </form>
+                            <%if(session.getAttribute("id_user")!=null){%>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="LogoutServlet" >Log Out</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/sombra-shop-web-1.0.0/cart.jsp" >Cart</a></li>
+                            </ul>
+                            <%}else{%>
+                            <ul class="nav navbar-nav navbar-right">
+                               <li><a href="registr.jsp">Sing Up</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                               <li><a href="login.jsp">Log In</a></li>
+                            </ul>
+                            <%}%>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
-        </div>
 
-        <!-- End Header -->
+                <!-- End Header -->
         <!-- Start Main Page Content -->
         <div class="row" id="content-column">
             <center>
@@ -57,13 +69,15 @@
                    <br>
                      <%=session.getAttribute("priceItem")%> $
                    </p>
-                   <%
+
+                   <% if(session.getAttribute("cartList")!=null){
                         List<Item> list = (ArrayList<Item>)session.getAttribute("cartList");
                                     if((list.size()>0)&&(list.get(list.size()-1).getId_item()==Integer.parseInt(session.getAttribute("idItem").toString()))){%>
                                         <p><a href="DeleteFromCartAllItemsServlet?index=<%=list.size()-1%>">Delete from cart</a></p>
                                     <%}else{ %>
-                                        <p><a href='AddInCartServlet?idItem=<%=session.getAttribute("idItem")%>'>Add to cart</a></p><%
+                                        <p><a href='AddInCartListServlet?idItem=<%=session.getAttribute("idItem")%>'>Add to cart</a></p><%
                                     }
+                      }
                    %>
             </center>
         </div>

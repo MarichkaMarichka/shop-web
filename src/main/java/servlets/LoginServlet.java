@@ -26,9 +26,11 @@ public class LoginServlet extends HttpServlet {
 
         User user = new User(login,psw);
         UsersRepository storage = new UsersRepository();
-            if(storage.searchUserByLogPass(user)) {
+        int id = storage.searchUserByLogPass(user);
+            if(id!=0) {
                 List cartList = new ArrayList();
                 HttpSession session = req.getSession(true);
+                session.setAttribute("id_user",id);
                 session.setAttribute("cartList", cartList);
                 resp.sendRedirect(getServletContext().getContextPath() + "/SelectServlet");
             } else {

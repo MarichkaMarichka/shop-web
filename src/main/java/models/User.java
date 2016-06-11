@@ -5,7 +5,7 @@ package models;
  */
 
 public class User {
-
+    private int id_user;
     private String login;
     private String password;
     private String email;
@@ -28,8 +28,12 @@ public class User {
         return ph_number;
     }
 
-    public User(String login, String password, String email,long ph_number) {
+    public int getId_user() {
+        return id_user;
+    }
 
+
+    public User(String login, String password, String email, long ph_number) {
         this.ph_number = ph_number;
         this.login = login;
         this.password = password;
