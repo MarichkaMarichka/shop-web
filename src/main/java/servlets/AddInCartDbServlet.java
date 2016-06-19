@@ -21,26 +21,26 @@ import java.util.List;
 public class AddInCartDbServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(true);
-        int index = Integer.parseInt(req.getParameter("index"));
-        List<Item> list = (ArrayList<Item>) session.getAttribute("cartList");
-        int item_id = list.get(index).getId_item();
-
-        int user_id = Integer.parseInt(session.getAttribute("id_user").toString());
-
-        CartRepository storage = new CartRepository();
-        Cart cart = new Cart(user_id, item_id);
         try {
+            HttpSession session = req.getSession(true);
+            int index = Integer.parseInt(req.getParameter("index"));
+            List<Item> list = (ArrayList<Item>) session.getAttribute("cartList");
+            int item_id = list.get(index).getId_item();
+
+            int user_id = Integer.parseInt(session.getAttribute("id_user").toString());
+
+            CartRepository storage = new CartRepository();
+            Cart cart = new Cart(user_id, item_id);
             storage.addCart(cart);
+
+            list.remove(index);
+            session.setAttribute("cartList", list);
+            resp.sendRedirect(getServletContext().getContextPath() + "/cart.jsp");
         } catch (SQLException ex) {
         }catch (NullPointerException ex) {
             resp.sendRedirect(getServletContext().getContextPath() + "/login.jsp");
         }
 
-
-        list.remove(index);
-        session.setAttribute("cartList", list);
-        resp.sendRedirect(getServletContext().getContextPath() + "/cart.jsp");
 
 
     }

@@ -56,7 +56,7 @@
                 <!-- End Header -->
         <!-- Start Main Page Content -->
             <div class="row" id="content-column">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="table">
               <thead>
                   <tr>
                     <th>#</th>
@@ -78,7 +78,7 @@
                  %>
                 <tr>
                   <th scope="row"><%=countEl %></th>
-                  <td><img src="<%=item.getImage()%>" style="width:133px;height:50px;"></td>
+                  <td><img src="<%=item.getImage()%>" class='cart-img'></td>
                   <td><%=item.getName()%></td>
                   <td><%=item.getPrice()%>$</td>
                   <%if(list.equals(null)){

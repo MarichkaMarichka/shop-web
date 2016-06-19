@@ -1,6 +1,7 @@
 package store;
 
 
+import models.Cart;
 import models.Item;
 import service.Settings;
 
@@ -76,11 +77,55 @@ public class ItemsRepository {
         }
         return item;
     }
-    public static void main(String []args)  {
-        Object obj = 10;
-        int a = (Integer) obj;
-        if(10==a){
-            System.out.println("true");
+    //-------------------------------------------------------------
+    public void addItem(Item i) throws SQLException {
+
+        final PreparedStatement uStatement = this.connection.prepareStatement("insert into items (name, price, image)"+
+                "values ('"+ i.getName()+ "',"+i.getPrice()+",'"+i.getImage()+"')");
+        uStatement.executeUpdate();
+        uStatement.close();
+
+    }
+    //--------------------------------------------------------------
+    public void deleteItem(Item i) throws SQLException {
+        CartRepository storage = new CartRepository();
+        Cart c = storage.searchCartByItemId(i.getId_item());
+        if (!c.equals(null)){
+            storage.deleteCart(c);
         }
+        final PreparedStatement uStatement = this.connection.prepareStatement("delete from items "+
+                "where id_item = "+i.getId_item());
+        uStatement.executeUpdate();
+        uStatement.close();
+
+    }
+    //------------------------------------------------------------------
+    public void updateItem(Item i) throws SQLException {
+
+        final PreparedStatement uStatement = this.connection.prepareStatement("update items " +
+                "set image = '" + i.getImage() + "' where id_item = " + i.getId_item()
+
+        );
+        uStatement.executeUpdate();
+        uStatement.close();
+
+    }
+
+    public static void main(String []args) throws SQLException  {
+//        Item item = new Item("Acer Black 11.6",500,"http://ll-us-i5.wal" +
+//                ".co/dfw/dce07b8c-9c98/k2-_2aa9e9ba-fc33-4f69-9281-afafffbce6b1.v1.jpg-552c7fa07eb9816749ce41796bded6f701099107-webp-450x450.webp");
+//        ItemsRepository storage = new ItemsRepository();
+//        storage.addItem(item);
+
+        Item item= new Item(6);
+        ItemsRepository storage = new ItemsRepository();
+        storage.deleteItem(item);
+
+//
+//        Item item= new Item(10,"http://ll-us-i5.wal.co/dfw/dce07b8c-4cce/k2-_f724bd61-ccb4-4be0-8517-13b07290b18e.v1" +
+//                ".jpg-bb492b1ce62d60d5e3cfea9e1092de422f88af26-webp-450x450.webp");
+//        ItemsRepository storage = new ItemsRepository();
+//        storage.updateItem(item);
+
     }
 }

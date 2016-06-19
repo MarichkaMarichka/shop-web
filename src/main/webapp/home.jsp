@@ -44,9 +44,15 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="LogoutServlet" >Log Out</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/sombra-shop-web-1.0.0/cart.jsp" >Cart</a></li>
-                    </ul>
+                        <%if(session.getAttribute("login").equals("admin")){%>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="AdminSelectServlet" >Admin Profile</a></li>
+                        </ul>
+                        <%}else{%>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/sombra-shop-web-1.0.0/cart.jsp" >Cart</a></li>
+                        </ul>
+                        <%}%>
                     <%}else{%>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="registr.jsp">Sing Up</a></li>
@@ -83,7 +89,7 @@
                                         </p>
                                       </div>
                                     </div>
-                                  </div>
+                				</div>
                  </c:forEach>
 
 

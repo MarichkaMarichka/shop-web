@@ -86,7 +86,7 @@
                     </div>
                     <div class="col-xs-4"></div>
 
-                    </div>
+                </div>
                 <!-- End Main Page Content -->
         <!-- Start Footer -->
 

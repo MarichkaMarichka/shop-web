@@ -49,13 +49,4 @@ public class UsersRepository {
         }
         return id;
     }
-
-
-    public static void main(String []args)  {
-
-
-
-
-
-    }
 }

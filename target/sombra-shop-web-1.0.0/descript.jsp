@@ -44,9 +44,15 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="LogoutServlet" >Log Out</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/sombra-shop-web-1.0.0/cart.jsp" >Cart</a></li>
-                            </ul>
+                                <%if(session.getAttribute("login").equals("admin")){%>
+                                     <ul class="nav navbar-nav navbar-right">
+                                         <li><a href="AdminSelectServlet" >Admin Profile</a></li>
+                                     </ul>
+                                <%}else{%>
+                                     <ul class="nav navbar-nav navbar-right">
+                                         <li><a href="/sombra-shop-web-1.0.0/cart.jsp" >Cart</a></li>
+                                     </ul>
+                                <%}%>
                             <%}else{%>
                             <ul class="nav navbar-nav navbar-right">
                                <li><a href="registr.jsp">Sing Up</a></li>
@@ -69,8 +75,7 @@
                    <br>
                      <%=session.getAttribute("priceItem")%> $
                    </p>
-
-                   <% if(session.getAttribute("cartList")!=null){
+                   <% if((session.getAttribute("cartList")!=null)&&(!(session.getAttribute("login").equals("admin")))){
                         List<Item> list = (ArrayList<Item>)session.getAttribute("cartList");
                                     if((list.size()>0)&&(list.get(list.size()-1).getId_item()==Integer.parseInt(session.getAttribute("idItem").toString()))){%>
                                         <p><a href="DeleteFromCartAllItemsServlet?index=<%=list.size()-1%>">Delete from cart</a></p>

@@ -27,14 +27,14 @@ public class LoginServlet extends HttpServlet {
         User user = new User(login,psw);
         UsersRepository storage = new UsersRepository();
         int id = storage.searchUserByLogPass(user);
+        HttpSession session = req.getSession(true);
             if(id!=0) {
                 List cartList = new ArrayList();
-                HttpSession session = req.getSession(true);
+                session.setAttribute("login",req.getParameter("login"));
                 session.setAttribute("id_user",id);
                 session.setAttribute("cartList", cartList);
                 resp.sendRedirect(getServletContext().getContextPath() + "/SelectServlet");
             } else {
-                HttpSession session = req.getSession(true);
                 String value2 = "This user is not registered!";
                 session.setAttribute("myData", value2);
                 resp.sendRedirect(getServletContext().getContextPath() + "/login.jsp");

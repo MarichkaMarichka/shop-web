@@ -34,10 +34,24 @@ public class CartRepository {
             uStatement.close();
 
     }
-
-
-
-    public static void main(String []args)  {
+    public Cart searchCartByItemId(int id) {
+        Cart item = new Cart();
+        try {
+            final Statement statement = this.connection.createStatement();
+            final ResultSet rs = statement.executeQuery("select * from carts where item_id = " + id);
+            if (rs.next()) {
+                item.setCart_id(rs.getInt(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return item;
+    }
+    public void deleteCart(Cart c) throws SQLException {
+        final PreparedStatement uStatement = this.connection.prepareStatement("delete from carts "+
+                "where cart_id = "+c.getCart_id());
+        uStatement.executeUpdate();
+        uStatement.close();
 
     }
 }
